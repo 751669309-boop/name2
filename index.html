@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新生儿取名 - 传统文化与周易智慧</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", "SimHei", sans-serif;
+        }
+        
+        body {
+            background-color: #f8f3e9;
+            color: #333;
+            line-height: 1.6;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23f8f3e9"/><path d="M0,0 L100,100 M100,0 L0,100" stroke="%23e8dcc9" stroke-width="0.5"/></svg>');
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 30px 0;
+            background: linear-gradient(135deg, #8b4513 0%, #d2691e 100%);
+            color: #fff;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        header p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        
+        .input-section {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #8b4513;
+        }
+        
+        input, select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border 0.3s;
+        }
+        
+        input:focus, select:focus {
+            border-color: #d2691e;
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(210, 105, 30, 0.2);
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .form-col {
+            flex: 1;
+        }
+        
+        button {
+            background: linear-gradient(135deg, #8b4513 0%, #d2691e 100%);
+            color: white;
+            border: none;
+            padding: 14px 25px;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
+            display: block;
+            width: 100%;
+            margin-top: 10px;
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .result-section {
+            display: none;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+        }
+        
+        .result-header {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #8b4513;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+        }
+        
+        .names-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .name-card {
+            border: 1px solid #e8dcc9;
+            border-radius: 8px;
+            padding: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            background-color: #fefcf7;
+        }
+        
+        .name-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        .name {
+            font-size: 1.8rem;
+            text-align: center;
+            margin-bottom: 15px;
+            color: #8b4513;
+            font-weight: bold;
+        }
+        
+        .meaning {
+            margin-bottom: 15px;
+            color: #555;
+        }
+        
+        .explanation {
+            background-color: #f8f3e9;
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .explanation h4 {
+            color: #8b4513;
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            color: #777;
+            font-size: 0.9rem;
+            border-top: 1px solid #e8dcc9;
+            margin-top: 30px;
+        }
+        
+        @media (max-width: 768px) {
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .names-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>新生儿取名</h1>
+            <p>融合传统文化与周易智慧，为您的宝宝选取吉祥美好的名字</p>
+        </header>
+        
+        <section class="input-section">
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="form-col">
+                        <label for="surname">姓氏</label>
+                        <input type="text" id="surname" placeholder="请输入宝宝的姓氏">
+                    </div>
+                    <div class="form-col">
+                        <label for="gender">性别</label>
+                        <select id="gender">
+                            <option value="">请选择性别</option>
+                            <option value="male">男孩</option>
+                            <option value="female">女孩</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="birthdate">出生日期</label>
+                <input type="date" id="birthdate">
+            </div>
+            
+            <button id="generate-btn">生成名字</button>
+        </section>
+        
+        <section class="result-section" id="result-section">
+            <div class="result-header">
+                <h2>为您精心挑选的名字</h2>
+                <p id="result-info">姓氏：<span id="result-surname"></span> | 性别：<span id="result-gender"></span> | 出生日期：<span id="result-birthdate"></span></p>
+            </div>
+            
+            <div class="names-grid" id="names-container">
+                <!-- 名字卡片将通过JavaScript动态生成 -->
+            </div>
+        </section>
+        
+        <footer>
+            <p>© 2023 新生儿取名网 | 传承中华文化，寄予美好祝愿</p>
+            <p>温馨提示：名字仅供参考，最终选择请结合家庭意愿和文化背景</p>
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById('generate-btn').addEventListener('click', function() {
+            const surname = document.getElementById('surname').value.trim();
+            const gender = document.getElementById('gender').value;
+            const birthdate = document.getElementById('birthdate').value;
+            
+            if (!surname) {
+                alert('请输入姓氏');
+                return;
+            }
+            
+            if (!gender) {
+                alert('请选择性别');
+                return;
+            }
+            
+            if (!birthdate) {
+                alert('请选择出生日期');
+                return;
+            }
+            
+            // 更新结果区域的信息
+            document.getElementById('result-surname').textContent = surname;
+            document.getElementById('result-gender').textContent = gender === 'male' ? '男孩' : '女孩';
+            document.getElementById('result-birthdate').textContent = formatDate(birthdate);
+            
+            // 生成名字
+            generateNames(surname, gender);
+            
+            // 显示结果区域
+            document.getElementById('result-section').style.display = 'block';
+            
+            // 滚动到结果区域
+            document.getElementById('result-section').scrollIntoView({ behavior: 'smooth' });
+        });
+        
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            const year = date.getFullYear();
+            const month = date.getMonth() + 1;
+            const day = date.getDate();
+            return `${year}年${month}月${day}日`;
+        }
+        
+        function generateNames(surname, gender) {
+            const namesContainer = document.getElementById('names-container');
+            namesContainer.innerHTML = '';
+            
+            // 根据性别选择名字库
+            const namePool = gender === 'male' ? boyNames : girlNames;
+            
+            // 随机选择10个名字
+            const selectedNames = [];
+            const usedIndices = new Set();
+            
+            while (selectedNames.length < 10 && selectedNames.length < namePool.length) {
+                const randomIndex = Math.floor(Math.random() * namePool.length);
+                if (!usedIndices.has(randomIndex)) {
+                    selectedNames.push(namePool[randomIndex]);
+                    usedIndices.add(randomIndex);
+                }
+            }
+            
+            // 生成名字卡片
+            selectedNames.forEach(nameData => {
+                const nameCard = document.createElement('div');
+                nameCard.className = 'name-card';
+                
+                nameCard.innerHTML = `
+                    <div class="name">${surname}${nameData.name}</div>
+                    <div class="meaning">${nameData.meaning}</div>
+                    <div class="explanation">
+                        <h4>周易解析：</h4>
+                        ${nameData.explanation}
+                    </div>
+                `;
+                
+                namesContainer.appendChild(nameCard);
+            });
+        }
+        
+        // 男孩名字库
+        const boyNames = [
+            {
+                name: '浩然',
+                meaning: '浩大刚直，正气凛然',
+                explanation: '浩字五行属水，象征胸怀广阔；然字五行属金，代表坚定不移。此名水金相生，寓意孩子将来胸怀宽广，意志坚定，有浩然正气，能成大器。'
+            },
+            {
+                name: '明轩',
+                meaning: '光明磊落，气宇轩昂',
+                explanation: '明字五行属火，象征光明智慧；轩字五行属土，代表高雅气度。此名火土相生，寓意孩子聪明睿智，气度不凡，前途光明。'
+            },
+            {
+                name: '睿哲',
+                meaning: '聪慧明智，富有哲理',
+                explanation: '睿字五行属金，象征深远智慧；哲字五行属火，代表明辨事理。此名金火相济，寓意孩子智慧超群，思维深邃，能成为有思想的人。'
+            },
+            {
+                name: '博文',
+                meaning: '博学多才，文质彬彬',
+                explanation: '博字五行属水，象征广博学识；文字五行属水，代表文采修养。此名水势旺盛，寓意孩子学识渊博，文采斐然，有君子风范。'
+            },
+            {
+                name: '修远',
+                meaning: '修身养性，志存高远',
+                explanation: '修字五行属金，象征修养完善；远字五行属土，代表远大志向。此名土金相生，寓意孩子注重自身修养，志向远大，能成就非凡人生。'
+            },
+            {
+                name: '天佑',
+                meaning: '天赐福佑，吉祥如意',
+                explanation: '天字五行属火，象征至高无上；佑字五行属土，代表庇佑保护。此名火土相生，寓意孩子得到上天眷顾，一生平安顺遂，福泽深厚。'
+            },
+            {
+                name: '俊驰',
+                meaning: '俊秀出众，驰骋天下',
+                explanation: '俊字五行属火，象征才智出众；驰字五行属火，代表迅捷前行。此名火势旺盛，寓意孩子才貌双全，行动力强，能在人生道路上快速前进。'
+            },
+            {
+                name: '瑾瑜',
+                meaning: '怀瑾握瑜，品德高尚',
+                explanation: '瑾字五行属火，象征美玉；瑜字五行属金，代表宝玉。此名火金相济，寓意孩子如美玉般品德高尚，才华出众，受人敬重。'
+            },
+            {
+                name: '烨磊',
+                meaning: '光明磊落，胸怀坦荡',
+                explanation: '烨字五行属火，象征光明炽盛；磊字五行属土，代表光明正大。此名火土相生，寓意孩子光明正大，胸怀坦荡，前途光明。'
+            },
+            {
+                name: '旭尧',
+                meaning: '如日初升，贤明如尧',
+                explanation: '旭字五行属木，象征初升太阳；尧字五行属木，代表上古贤君。此名木气旺盛，寓意孩子如朝阳般充满活力，贤明有德，能成为领导人物。'
+            },
+            {
+                name: '弘毅',
+                meaning: '弘大刚毅，意志坚定',
+                explanation: '弘字五行属水，象征广大；毅字五行属木，代表坚定果决。此名水木相生，寓意孩子胸怀宽广，意志坚定，能担当大任。'
+            },
+            {
+                name: '承德',
+                meaning: '继承美德，品德高尚',
+                explanation: '承字五行属金，象征传承接续；德字五行属火，代表道德品行。此名金火相济，寓意孩子能继承优良传统，品德高尚，受人尊敬。'
+            }
+        ];
+        
+        // 女孩名字库
+        const girlNames = [
+            {
+                name: '婉清',
+                meaning: '温婉娴静，清新脱俗',
+                explanation: '婉字五行属土，象征柔美温顺；清字五行属水，代表纯净清澈。此名土水相生，寓意孩子性情温婉，心地纯净，气质清新脱俗。'
+            },
+            {
+                name: '诗涵',
+                meaning: '富有诗意，内涵丰富',
+                explanation: '诗字五行属金，象征诗情画意；涵字五行属水，代表包容涵养。此名金水相生，寓意孩子富有文采，内涵丰富，气质优雅。'
+            },
+            {
+                name: '慧妍',
+                meaning: '聪慧美丽，才貌双全',
+                explanation: '慧字五行属水，象征智慧聪颖；妍字五行属水，代表美丽美好。此名水势旺盛，寓意孩子聪明伶俐，容貌秀美，才貌双全。'
+            },
+            {
+                name: '静雅',
+                meaning: '娴静优雅，气质出众',
+                explanation: '静字五行属金，象征宁静平和；雅字五行属木，代表高雅不俗。此名金木相济，寓意孩子性情娴静，举止优雅，气质不凡。'
+            },
+            {
+                name: '雨婷',
+                meaning: '如雨清新，婷婷玉立',
+                explanation: '雨字五行属水，象征滋润万物；婷字五行属火，代表美好姿态。此名水火既济，寓意孩子如春雨般清新可人，身姿优美，亭亭玉立。'
+            },
+            {
+                name: '欣怡',
+                meaning: '欣喜快乐，心情愉悦',
+                explanation: '欣字五行属木，象征喜悦欢欣；怡字五行属土，代表和悦愉快。此名木土相生，寓意孩子性格开朗，生活愉快，能给周围人带来欢乐。'
+            },
+            {
+                name: '梦洁',
+                meaning: '如梦纯洁，心地纯净',
+                explanation: '梦字五行属木，象征美好梦想；洁字五行属水，代表纯洁无瑕。此名水木相生，寓意孩子心怀美好梦想，心地纯洁善良。'
+            },
+            {
+                name: '雅琳',
+                meaning: '高雅如玉，珍贵美好',
+                explanation: '雅字五行属木，象征高雅不俗；琳字五行属木，代表美玉。此名木气旺盛，寓意孩子气质高雅，如美玉般珍贵美好。'
+            },
+            {
+                name: '语嫣',
+                meaning: '言语美好，笑靥如花',
+                explanation: '语字五行属木，象征言语表达；嫣字五行属土，代表美好笑容。此名木土相生，寓意孩子谈吐优雅，笑容甜美，惹人喜爱。'
+            },
+            {
+                name: '晓萱',
+                meaning: '知晓事理，如萱草般忘忧',
+                explanation: '晓字五行属火，象征知晓明白；萱字五行属木，代表忘忧草。此名火木相生，寓意孩子聪明懂事，性格开朗，能忘却烦恼。'
+            },
+            {
+                name: '思睿',
+                meaning: '思维睿智，聪慧过人',
+                explanation: '思字五行属金，象征思考思维；睿字五行属金，代表深远智慧。此名金气旺盛，寓意孩子思维敏捷，智慧超群，有远见卓识。'
+            },
+            {
+                name: '若雪',
+                meaning: '如雪纯洁，气质清冷',
+                explanation: '若字五行属木，象征如同；雪字五行属水，代表纯洁冰雪。此名水木相生，寓意孩子心地纯洁如雪，气质清雅高洁。'
+            }
+        ];
+    </script>
+</body>
+</html>
